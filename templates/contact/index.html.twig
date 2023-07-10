@@ -1,0 +1,58 @@
+
+<!-- contact/index.html.twig -->
+
+{% block body %}
+    <h1>Kapcsolat</h1>
+
+    <form id="contact-form" action="{{ path('contact_submit') }}" method="post">
+        <div>
+            <label for="name">Név:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="message">Üzenet:</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Küldés</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            var nameInput = document.getElementById('name');
+            var emailInput = document.getElementById('email');
+            var messageInput = document.getElementById('message');
+            var isValid = true;
+
+            if (nameInput.value.trim() === '') {
+                nameInput.setCustomValidity('Kérlek add meg a neved.');
+                isValid = false;
+            } else {
+                nameInput.setCustomValidity('');
+            }
+
+            if (emailInput.value.trim() === '') {
+                emailInput.setCustomValidity('Kérlek add meg az email címed.');
+                isValid = false;
+            } else {
+                emailInput.setCustomValidity('');
+            }
+
+            if (messageInput.value.trim() === '') {
+                messageInput.setCustomValidity('Kérlek adj meg valami szöveget.');
+                isValid = false;
+            } else {
+                messageInput.setCustomValidity('');
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+{% endblock %}

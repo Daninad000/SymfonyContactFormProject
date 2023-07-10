@@ -1,0 +1,37 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# Ez működöttt
+#contact:
+#    path: /contact
+#    controller: App\Controller\ContactController::show
+#    methods: [GET]
+
+#contact:
+#   path: /contact
+#   controller: App\Controller\ContactController::submit
+#   methods: [GET, POST]
+
+
+contact_submit:
+    path: /contact
+    controller: App\Controller\ContactController::submit
+    methods: [GET, POST]
+
+contact_success:
+    path: /contact/success
+    controller: App\Controller\ContactController::success
+    methods: [GET]
+
+contact_error:
+    path: /contact/error
+    controller: App\Controller\ContactController::error
+    methods: [GET]
+
+# routes.yaml
+
+#contact:
+#    path: /contact
+#    controller: App\Controller\ContactController::contact
+#    methods: [GET, POST]
